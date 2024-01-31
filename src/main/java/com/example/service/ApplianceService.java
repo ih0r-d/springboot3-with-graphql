@@ -1,5 +1,6 @@
 package com.example.service;
 
+import com.example.dto.ApplianceDto;
 import com.example.models.Appliance;
 import com.example.repository.ApplianceRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,11 @@ public class ApplianceService {
 
     public List<Appliance> getAllAppliances(){
         return applianceRepository.findAll();
+    }
+
+
+    public Appliance createAppliance(ApplianceDto data){
+        return applianceRepository.save(ApplianceDto.toEntity(data));
     }
 
 }

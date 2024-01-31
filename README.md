@@ -22,3 +22,19 @@ query{
   }
 }
 ```
+* For insert new item into db, we can use `mutation`:
+
+```graphql
+mutation {
+  createNewAppliance(dto:{
+    amount:5,
+    brand: "Apple",
+    equipment: "Iphone"
+  }){
+    id,
+    amount,
+    brand,
+    equipment
+  }
+}
+```

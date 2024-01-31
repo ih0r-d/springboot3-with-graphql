@@ -8,3 +8,13 @@ type Appliance {
 type Query{
     getAppliances: [Appliance]
 }
+
+type Mutation{
+    createNewAppliance(dto: ApplianceDto) : Appliance
+}
+
+input ApplianceDto{
+    amount: Int!
+    brand: String!
+    equipment: String!
+}
