@@ -1,0 +1,10 @@
+type Appliance {
+    id: ID!
+    amount: Int!
+    brand: String!
+    equipment: String!
+}
+
+type Query{
+    getAppliances: [Appliance]
+}
