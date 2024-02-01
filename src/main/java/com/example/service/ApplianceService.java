@@ -16,18 +16,22 @@ public class ApplianceService {
     private final ApplianceRepository applianceRepository;
 
 
-    public List<Appliance> getAllAppliances(){
+    public List<Appliance> getAllAppliances() {
         return applianceRepository.findAll();
     }
 
 
-    public Appliance createAppliance(ApplianceDto data){
+    public Appliance createAppliance(ApplianceDto data) {
         return applianceRepository.save(ApplianceDto.toEntity(data));
     }
 
-    public Appliance updateAppliance(Long id, ApplianceDto dto){
-        var appliance = applianceRepository.findById(id)
+    public Appliance findApplianceById(Long id) {
+        return applianceRepository.findById(id)
                 .orElseThrow(() -> new ApplianceNotFoundException("Appliance with id '%s' not exists".formatted(id)));
+    }
+
+    public Appliance updateAppliance(Long id, ApplianceDto dto) {
+        var appliance = findApplianceById(id);
         var updatedAppliance = Appliance.builder()
                 .id(appliance.getId())
                 .amount(dto.amount())
@@ -35,6 +39,12 @@ public class ApplianceService {
                 .equipment(dto.equipment())
                 .build();
         return applianceRepository.save(updatedAppliance);
+    }
+
+    public String deleteApplianceById(Long id) {
+        var appliance = findApplianceById(id);
+        applianceRepository.delete(appliance);
+        return "Appliance by id '%s' successfully removed.";
     }
 
 }

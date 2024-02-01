@@ -32,4 +32,9 @@ public class ApplianceController {
         return applianceService.updateAppliance(id, dto);
     }
 
+    @MutationMapping
+    public String deleteAppliance(@Argument Long id) {
+        return applianceService.deleteApplianceById(id);
+    }
+
 }

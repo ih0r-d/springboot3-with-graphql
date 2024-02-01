@@ -53,3 +53,10 @@ mutation {
   }
 }
 ```
+* For remove exists appliance:
+```graphql
+
+mutation {
+  deleteAppliance(id:1)
+}
+```

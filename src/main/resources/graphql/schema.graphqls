@@ -12,6 +12,7 @@ type Query{
 type Mutation{
     createNewAppliance(dto: ApplianceDto) : Appliance
     updateAppliance(id:ID!, dto: ApplianceDto): Appliance
+    deleteAppliance(id:ID!):String
 }
 
 input ApplianceDto{
