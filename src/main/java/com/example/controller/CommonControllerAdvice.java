@@ -15,5 +15,4 @@ public class CommonControllerAdvice {
                 .build();
     }
 
-
 }
