@@ -11,6 +11,7 @@ type Query{
 
 type Mutation{
     createNewAppliance(dto: ApplianceDto) : Appliance
+    updateAppliance(id:ID!, dto: ApplianceDto): Appliance
 }
 
 input ApplianceDto{

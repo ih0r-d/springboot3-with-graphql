@@ -18,13 +18,18 @@ public class ApplianceController {
     private final ApplianceService applianceService;
 
     @QueryMapping()
-    List<Appliance> getAppliances(){
+    public List<Appliance> getAppliances() {
         return applianceService.getAllAppliances();
     }
 
     @MutationMapping
-    Appliance createNewAppliance(@Argument ApplianceDto dto){
+    public Appliance createNewAppliance(@Argument ApplianceDto dto) {
         return applianceService.createAppliance(dto);
+    }
+
+    @MutationMapping
+    public Appliance updateAppliance(@Argument Long id, @Argument ApplianceDto dto) {
+        return applianceService.updateAppliance(id, dto);
     }
 
 }

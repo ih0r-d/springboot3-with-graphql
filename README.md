@@ -38,3 +38,18 @@ mutation {
   }
 }
 ```
+* For update exists appliance in db:
+```graphql
+mutation {
+  updateAppliance(id:1, dto:{
+    amount:10,
+    brand: "Apple",
+    equipment: "MacBook Pro"
+  }){
+    id,
+    amount,
+    brand,
+    equipment
+  }
+}
+```
